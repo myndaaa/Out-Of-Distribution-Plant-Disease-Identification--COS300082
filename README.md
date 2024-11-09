@@ -42,3 +42,46 @@ Each CSV file contains the following columns:
 3. **Disease Category (Ground Truth)**: The category of the disease affecting the crop (there are 21 disease categories).
 
 The crop and disease categories are combined to form a single composition. The index for both crop and disease categories starts from 0.
+---
+# Baseline Model 🌿
+
+
+### 1. **Preprocessing:**
+   - **Image Size:** All training images are resized to 256 x 256 pixels.
+   - **Normalization:** Pixel values are scaled to the range [0, 1] using ImageNet's mean and standard deviation values for normalization:
+     - **Mean:** [0.485, 0.456, 0.406]
+     - **Std:** [0.229, 0.224, 0.225]
+   
+### 2. **Data Augmentation:**
+   To simulate real-world variations, the following augmentations are applied:
+   - Random rotation, flips, zoom, shifts (width & height), brightness/contrast adjustments.
+   - Random cropping and padding.
+
+### 3. **Class Imbalance Handling:**
+   - **Oversampling** of smaller classes using techniques like SMOTE.
+   - **Class Weights:** Higher weights are assigned to underrepresented classes to balance model learning.
+
+### 4. **Transfer Learning with ResNet:**
+   - **Frozen Layers:** Initially, the convolutional layers of the pre-trained ResNet model are frozen.
+   - **Custom Dense Layers:** Added on top of the base model for classification.
+   - **Fine-Tuning:** Later, the top layers of ResNet are unfrozen and fine-tuned with a low learning rate.
+
+### 5. **Training Phases:**
+   - **Phase 1:** Train custom layers only, freezing the pre-trained layers.
+   - **Phase 2:** Fine-tune the entire model with a low learning rate and early stopping to prevent overfitting.
+
+### 6. **Regularization & Optimization:**
+   - **Dropout Layers** to prevent overfitting.
+   - **L2 Regularization** on weights.
+   - **Optimizer:** Adam or RMSprop with a learning rate schedule.
+   - **Loss Function:** Categorical Cross-Entropy for multi-class classification.
+
+### 7. **Model Evaluation:**
+   - After training, evaluate model performance on a separate test set.
+   - **Metrics:** Accuracy, precision, recall, and F1-score.
+
+### 8. **Hyperparameter Tuning:**
+   - Use grid search/random search for optimizing hyperparameters like learning rate, batch size, and epochs.
+   - **Ensemble Methods:** Experiment with boosting techniques to further increase model accuracy.
+
+---
