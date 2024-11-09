@@ -42,7 +42,9 @@ Each CSV file contains the following columns:
 3. **Disease Category (Ground Truth)**: The category of the disease affecting the crop (there are 21 disease categories).
 
 The crop and disease categories are combined to form a single composition. The index for both crop and disease categories starts from 0.
+
 ---
+
 # Baseline Model 🌿
 
 
