@@ -45,4 +45,94 @@ The crop and disease categories are combined to form a single composition. The i
 
 ---
 
-# How to run the models?
+# How to run the codes?
+
+Hello readers, in order to use our proposed architecture follow the detailed instructions below
+to train the model locally on your device.
+
+## Setting Up a Virtual Environment Using Miniconda
+
+This guide explains how to set up a virtual environment named `mysha` 
+using an `environment.yml` file in Miniconda. The environment will include Python, 
+CUDA, CuDNN, and a variety of scientific and machine learning libraries.
+
+### Step 1: Install Miniconda
+First, you need to install Miniconda, a minimal version of Anaconda, which allows you to create and manage Python environments.
+
+1. Go to the [Miniconda download page](https://docs.conda.io/en/latest/miniconda.html).
+2. Download the installer for your operating system:
+   - For **Windows**: Download `Miniconda3-latest-Windows-x86_64.exe`.
+   - For **macOS**: Download the macOS installer (`.pkg` file).
+   - For **Linux**: Download the corresponding `.sh` file.
+3. Follow the installation instructions for your operating system.
+
+### Step 2: Create a Virtual Environment Using `environment.yml`
+After installing Miniconda, you can create a virtual environment using the provided `environment.yml` file. This file specifies the dependencies and channels required to set up the environment.
+
+1. Save the following `environment.yml` file:
+
+   ```yml
+   name: mysha 
+   channels:
+     - conda-forge
+     - defaults
+   dependencies:
+     - python=3.9
+     - cudatoolkit=11.2
+     - cudnn=8.1.0
+     - numpy=1.23.5                 # Downgraded NumPy version
+     - pandas=2.2.3                 # Pinning to ensure compatibility
+     - matplotlib=3.5.1             # Pinning to ensure compatibility
+     - scikit-learn=1.2.2           # Pinning to ensure compatibility
+     - pillow=10.4.0                # Updated to match current installation
+     - seaborn=0.12.2               # Added Seaborn
+     - pip
+     - pip:
+       - tensorflow<2.11
+       - imbalanced-learn==0.10.1    # Updated imbalanced-learn
+       - jupyter
+       - ipykernel
+       # Add other pip-installed packages here
+```
+
+2. Open a terminal and navigate to the directory where the `environment.yml` file is saved.
+3. Run the following command to create the environment:
+
+```
+conda env create -f environment.yml
+
+```
+
+### Step 3: Activate the Environment
+
+Once the environment is successfully created, activate it with the following command:
+
+```
+conda activate mysha
+
+```
+
+### Step 4: Start Jupyter Notebook
+
+Run the following command:
+
+```
+jupyter notebook
+
+```
+
+
+### Step 5: getting the codes and running to the training
+
+To get the codes, git clone this directory
+
+```
+git clone https://github.com/myndaaa/Out-Of-Distribution-Plant-Disease-Identification--COS300082.git
+
+```
+
+copy the .ipynb codes and open them in your jupyter notebook <br>
+Download the required dataset from the drive link at the top of this file <br>
+In the code bases change the directories of the datasets to your actual paths. And also the directories
+where you want to save your models<br>
+and hit run!<br>
