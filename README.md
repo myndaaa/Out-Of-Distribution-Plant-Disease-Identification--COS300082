@@ -87,3 +87,5 @@ The crop and disease categories are combined to form a single composition. The i
    - **Ensemble Methods:** Experiment with boosting techniques to further increase model accuracy.
 
 ---
+
+By: Mysha, Voon, Kelvin
