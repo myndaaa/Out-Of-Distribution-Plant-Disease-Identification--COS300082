@@ -136,3 +136,27 @@ Download the required dataset from the drive link at the top of this file <br>
 In the code bases change the directories of the datasets to your actual paths. And also the directories
 where you want to save your models<br>
 and hit run!<br>
+
+----
+
+# Contributors
+
+# Contribution Table
+
+| **Who Did What**                                                                 |
+|----------------------------------------------------------------------------------|
+| **Contributor**                  | **Contribution**                            | **Percent Contribution** |
+|----------------------------------|---------------------------------------------|---------------------------|
+| **Mysha Nahiyan Shemontee**      | **(See below for detailed contribution)**   | **100%**                 |
+|                                  | - Exploratory models - ResNet50            |                           |
+|                                  | - Baseline model (crop) - ResNet50v2        |                           |
+|                                  | - Baseline model (disease) - ResNet50v2     |                           |
+|                                  | - Baseline model (disease) - DenseNet102    |                           |
+|                                  | - Baseline model (crop) - DenseNet102       |                           |
+|                                  | - Proposed model                            |                           |
+|                                  | - Ensemble learning (crop baseline model)   |                           |
+|                                  | - Ensemble learning (disease baseline model)|                           |
+|                                  | - Jetson Nano embedded system               |                           |
+|                                  | - Web interface deployment                  |                           |
+| **Voong Zhe Hong**               | Exploratory CNN (crop model)               | **100%**                 |
+| **Kelvin Chen Wei Lung**         | Exploratory CNN (disease model)            | **100%**                 |
