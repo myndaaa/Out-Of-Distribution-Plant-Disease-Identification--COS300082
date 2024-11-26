@@ -71,7 +71,8 @@ After installing Miniconda, you can create a virtual environment using the provi
 
 1. Save the following `environment.yml` file:
 
-   ```yml
+```
+
    name: mysha 
    channels:
      - conda-forge
@@ -93,12 +94,14 @@ After installing Miniconda, you can create a virtual environment using the provi
        - jupyter
        - ipykernel
        # Add other pip-installed packages here
+	   
 ```
 
 2. Open a terminal and navigate to the directory where the `environment.yml` file is saved.
 3. Run the following command to create the environment:
 
 ```
+
 conda env create -f environment.yml
 
 ```
@@ -108,6 +111,7 @@ conda env create -f environment.yml
 Once the environment is successfully created, activate it with the following command:
 
 ```
+
 conda activate mysha
 
 ```
@@ -117,6 +121,7 @@ conda activate mysha
 Run the following command:
 
 ```
+
 jupyter notebook
 
 ```
@@ -127,7 +132,9 @@ jupyter notebook
 To get the codes, git clone this directory
 
 ```
+
 git clone https://github.com/myndaaa/Out-Of-Distribution-Plant-Disease-Identification--COS300082.git
+
 
 ```
 
