@@ -1,17 +1,34 @@
 # Model Architecture
 
-The model architecture is built using a Convolutional Neural Network (CNN) and consists of the following layers:
+- **Model**: A Convolutional Neural Network (CNN) built with Keras.
+- **Input Shape**: RGB images with dimensions `299x299x3`.
 
- - Input Layer: Accepts images of shape (299, 299, 3).
- - Three convolutional blocks:
-       --Each block includes convolutional layers (Conv2D), followed by max-pooling layers                 (MaxPooling2D).  
-       --Activation: ReLU.
- - Fully connected dense layer with 256 units.
- - Dropout layer with a rate of 0.5 to prevent overfitting.
- - Output Layer: A dense layer with 14 units (softmax activation) for multi-class classification.
- - Optimizer: Adam, with a learning rate of 0.001.
- - Loss Function: Categorical Crossentropy.
- - Metrics: Accuracy.
+### Layers:
+1. **Input Layer**:
+   - Shape: `(299, 299, 3)`.
+
+2. **Convolutional Layers**:
+   - `Conv2D` with 32 filters, kernel size `(3, 3)`, activation `ReLU`.
+   - `Conv2D` with 64 filters, kernel size `(3, 3)`, activation `ReLU`.
+   - `Conv2D` with 128 filters, kernel size `(3, 3)`, activation `ReLU`.
+
+3. **Pooling Layers**:
+   - `MaxPooling2D` after each convolutional layer, pool size `(2, 2)`.
+
+4. **Flatten Layer**:
+   - Flattens feature maps into a single vector.
+
+5. **Dense Layers**:
+   - `Dense` with 256 units, activation `ReLU`.
+   - `Dense` with `num_classes` units (14 classes for crop classification), activation `softmax`.
+
+6. **Dropout Layer**:
+   - Dropout rate of 0.5 after the first dense layer to prevent overfitting.
+
+### Model Details:
+- **Optimizer**: Adam, with a learning rate of 0.001.
+- **Loss Function**: Categorical Crossentropy.
+- **Metrics**: Accuracy.
  
 
 # Results
