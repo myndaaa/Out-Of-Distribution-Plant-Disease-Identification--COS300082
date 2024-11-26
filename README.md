@@ -148,9 +148,6 @@ and hit run!<br>
 
 # Contributors
 
-# Contribution Table
-
-# Contribution Table
 
 <table>
   <tr>
