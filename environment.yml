@@ -1,0 +1,21 @@
+name: mysha
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - cudatoolkit=11.2
+  - cudnn=8.1.0
+  - numpy=1.23.5                 # Downgraded NumPy version
+  - pandas=2.2.3                 # Pinning to ensure compatibility
+  - matplotlib=3.5.1             # Pinning to ensure compatibility
+  - scikit-learn=1.2.2           # Pinning to ensure compatibility
+  - pillow=10.4.0                # Updated to match current installation
+  - seaborn=0.12.2               # Added Seaborn
+  - pip
+  - pip:
+    - tensorflow<2.11
+    - imbalanced-learn==0.10.1    # Updated imbalanced-learn
+    - jupyter
+    - ipykernel
+    # Add other pip-installed packages here
