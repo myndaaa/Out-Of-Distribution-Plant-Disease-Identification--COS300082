@@ -150,20 +150,66 @@ and hit run!<br>
 
 # Contribution Table
 
-| **Who Did What**                                                                 |
-|----------------------------------------------------------------------------------|
-| **Contributor**                  | **Contribution**                            | **Percent Contribution** |
-|----------------------------------|---------------------------------------------|---------------------------|
-| **Mysha Nahiyan Shemontee**      | **(See below for detailed contribution)**   | **100%**                 |
-|                                  | - Exploratory models - ResNet50            |                           |
-|                                  | - Baseline model (crop) - ResNet50v2        |                           |
-|                                  | - Baseline model (disease) - ResNet50v2     |                           |
-|                                  | - Baseline model (disease) - DenseNet102    |                           |
-|                                  | - Baseline model (crop) - DenseNet102       |                           |
-|                                  | - Proposed model                            |                           |
-|                                  | - Ensemble learning (crop baseline model)   |                           |
-|                                  | - Ensemble learning (disease baseline model)|                           |
-|                                  | - Jetson Nano embedded system               |                           |
-|                                  | - Web interface deployment                  |                           |
-| **Voong Zhe Hong**               | Exploratory CNN (crop model)               | **100%**                 |
-| **Kelvin Chen Wei Lung**         | Exploratory CNN (disease model)            | **100%**                 |
+# Contribution Table
+
+<table>
+  <tr>
+    <th colspan="3">Who Did What</th>
+  </tr>
+  <tr>
+    <th>Contributor</th>
+    <th>Contribution</th>
+    <th>Percent Contribution</th>
+  </tr>
+  <tr>
+    <td rowspan="10">Mysha Nahiyan Shemontee</td>
+    <td>Exploratory models - ResNet50</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Baseline model (crop) - ResNet50v2</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Baseline model (disease) - ResNet50v2</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Baseline model (disease) - DenseNet102</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Baseline model (crop) - DenseNet102</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Proposed model</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Ensemble learning (crop baseline model)</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Ensemble learning (disease baseline model)</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Jetson Nano embedded system</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Web interface deployment</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Voong Zhe Hong</td>
+    <td>Exploratory CNN (crop model)</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Kelvin Chen Wei Lung</td>
+    <td>Exploratory CNN (disease model)</td>
+    <td>100%</td>
+  </tr>
+</table>
