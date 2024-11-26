@@ -200,8 +200,12 @@ and hit run!<br>
     <td>100%</td>
   </tr>
   <tr>
-    <td>Voong Zhe Hong</td>
+    <td rowspan="2">Voong Zhe Hong</td>
     <td>Exploratory CNN (crop model)</td>
+    <td>100%</td>
+  </tr>
+  <tr>
+    <td>Exploratory CNN model pipeline</td>
     <td>100%</td>
   </tr>
   <tr>
