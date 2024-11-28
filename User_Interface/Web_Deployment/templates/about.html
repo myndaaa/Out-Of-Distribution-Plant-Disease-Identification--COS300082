@@ -1,0 +1,151 @@
+<!-- templates/about.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Data - Plant Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles specific to about.html */
+
+        /* About Data Heading */
+        .about-heading {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 60px 0 30px 0;
+            color: #333;
+        }
+
+        /* Plant Image */
+        .plant-image {
+            display: block;
+            margin: 0 auto 40px auto;
+            width: 50%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plant-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Paragraph */
+        .about-paragraph {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+            padding: 0 20px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .about-heading {
+                font-size: 2em;
+                margin: 40px 0 20px 0;
+            }
+
+            .plant-image {
+                width: 80%;
+            }
+
+            .about-paragraph {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+            <span class="site-name">Plant Classifier</span>
+        </div>
+        <div class="nav-center">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('archi') }}" class="nav-link">Architecture</a>
+            <a href="{{ url_for('contributors') }}" class="nav-link">Contributors</a>
+            <a href="{{ url_for('about') }}" class="nav-link active">About Data</a>
+        </div>
+    </nav>
+    
+    <!-- Loading Spinner (if applicable) -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Data Heading -->
+        <div class="about-heading">Plant Village and Plant Doc Dataset</div>
+        
+        <!-- Plant Image -->
+        <img src="{{ url_for('static', filename='images/plant.png') }}" alt="Plant Dataset" class="plant-image">
+        
+        <!-- About Paragraph -->
+        <div class="about-paragraph">
+            The dataset used in this study comprises images from the <strong>PlantVillage</strong> and <strong>PlantDoc</strong> datasets, which are widely recognized for plant disease identification tasks. The <strong>PlantVillage dataset</strong> was used exclusively for training and testing, consisting of <strong>14 crop classes</strong> and <strong>21 disease classes</strong>, with additional healthy samples included. The dataset, while comprehensive, exhibits significant class imbalance, with some classes containing thousands of samples while others have only a few hundred. This imbalance posed challenges for model training, requiring the implementation of a <strong>class-weighting technique</strong> to ensure equitable learning across all classes. PlantVillage images are clean, high-quality, and captured in controlled environments, making them ideal for training deep learning models.
+
+            <br><br>
+
+            For testing, both <strong>PlantVillage</strong> and <strong>PlantDoc</strong> datasets were used. The <strong>PlantDoc dataset</strong>, in contrast to PlantVillage, consists of real-world images with variations in lighting, background, and noise, introducing an <strong>out-of-distribution (OOD)</strong> challenge for the models. This dataset was used to evaluate the models' generalization capabilities across seen and unseen data domains. While the controlled conditions of PlantVillage allowed for robust feature extraction, the domain shift introduced by PlantDoc revealed limitations in the models' ability to generalize to noisy, real-world scenarios. This dual testing approach provided a comprehensive evaluation of the models across controlled and OOD datasets, highlighting their strengths and areas for improvement.
+        </div>
+    </div>
+    
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <p>Source code for this project can be found here:</p>
+        <a href="https://github.com/myndaaa/Out-Of-Distribution-Plant-Disease-Identification--COS300082/" target="_blank">
+            <img src="{{ url_for('static', filename='images/footer.png') }}" alt="Footer Logo" class="footer-logo">
+        </a>
+    </footer>
+    
+    <!-- JavaScript (if applicable) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const classifyBtn = document.querySelector('.classify-btn');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const uploadButton = document.getElementById('upload-button');
+            const fileInput = document.getElementById('file-input');
+            const uploadForm = document.getElementById('upload-form');
+            
+            // Show spinner when classify button is clicked
+            if (classifyBtn) {
+                classifyBtn.addEventListener('click', function() {
+                    loadingSpinner.style.display = 'flex';
+                });
+            }
+            
+            // Handle Upload Image button click
+            if (uploadButton) {
+                uploadButton.addEventListener('click', function() {
+                    fileInput.click();
+                });
+            }
+            
+            // Submit form when a file is selected
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files.length > 0) {
+                        uploadForm.submit();
+                    }
+                });
+            }
+            
+            // Hide the spinner when the page has fully loaded
+            window.addEventListener('load', function() {
+                loadingSpinner.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

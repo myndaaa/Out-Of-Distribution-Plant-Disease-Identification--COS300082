@@ -1,0 +1,457 @@
+/* static/styles.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F7FFE0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 80px auto 0; 
+    padding: 20px;
+    padding-bottom: 120px; 
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #EFFFC2;
+    border-bottom: 2px solid #7BA33A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 34px;
+    width: 23px;
+    margin-right: 10px;
+}
+
+.site-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1; /* Allows nav-center to take up available space */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    font-weight: 600; 
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #7BA33A;
+}
+
+.nav-link.active {
+    color: #006400; /* Dark green color */
+    font-weight: 700; 
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    width: 224px;
+    height: 224px;
+    border: 2px dashed #ccc;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder span {
+    color: #aaa;
+    font-size: 1.2em;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.button-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-form input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    height: 40px; 
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.upload-btn {
+    background-color: #7BA33A;
+    color: white;
+}
+
+.upload-btn:hover:not(:disabled) {
+    background-color: #6a8b2d;
+}
+
+.classify-btn {
+    background-color: #7BA33A;
+    color: white;
+}
+
+.classify-btn:hover:not(:disabled) {
+    background-color: #6a8b2d;
+}
+
+.reset-btn {
+    background-color: transparent;
+    color: #BC514A;
+    border: 2px solid #BC514A;
+}
+
+.reset-btn:hover:not(:disabled) {
+    background-color: rgba(188, 81, 74, 0.1);
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Classification Results */
+.results {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.thumbnail {
+    width: 50px;
+    height: 50px;
+}
+
+.result-text strong {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.result-text p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Similar Images */
+.similar-section {
+    margin-bottom: 30px;
+}
+
+.similar-section h3 {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.similar-images {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.similar-images img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.similar-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Sticky Footer */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #EFFFC2;
+    border-top: 2px solid #7BA33A;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 10000; /* Higher than navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #7BA33A; /* Spinner color matching the buttons */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .results {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .similar-images img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .nav-center {
+        display: none; /* Hide navigation links on smaller screens */
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+   
+}
+
+/* styles.css */
+
+/* Project Contributors Section */
+.project-contributors {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 40px 0 20px 0;
+    color: #333;
+}
+
+/* Contributors Gallery */
+.contributors-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.contributor {
+    text-align: center;
+}
+
+.contributor img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.contributor-name {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Contributions Section */
+.contributions-section {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Contributions Table */
+.contributions-table {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+
+.contributions-table th, .contributions-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.contributions-table th {
+    background-color: #7BA33A;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.contributions-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.contributions-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Flash Messages */
+.flash-messages {
+    max-width: 1200px;
+    margin: 100px auto 0; /* Adjust margin-top to position below navbar */
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.flash-message {
+    background-color: #ffdddd;
+    color: #d8000c;
+    border-left: 6px solid #f44336;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* styles.css */
+
+/* About Data Heading */
+.about-heading {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 60px 0 30px 0;
+    color: #333;
+}
+
+/* Plant Image */
+.plant-image {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 50%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plant-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* About Paragraph */
+.about-paragraph {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    padding: 0 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-heading {
+        font-size: 2em;
+        margin: 40px 0 20px 0;
+    }
+
+    .plant-image {
+        width: 80%;
+    }
+
+    .about-paragraph {
+        font-size: 1em;
+    }
+}
+

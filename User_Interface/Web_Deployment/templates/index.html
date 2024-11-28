@@ -1,0 +1,156 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+            <span class="site-name">Plant Classifier</span>
+        </div>
+        <div class="nav-center">
+            <a href="{{ url_for('index') }}" class="nav-link active">Home</a>
+            <a href="{{ url_for('archi') }}" class="nav-link">Architecture</a>
+            <a href="{{ url_for('contributors') }}" class="nav-link">Contributors</a>
+            <a href="{{ url_for('about') }}" class="nav-link">About Data</a>
+        </div>
+    </nav>
+    
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Image Placeholder -->
+        <div class="image-placeholder">
+            {% if uploaded_image %}
+                <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Uploaded Image">
+            {% else %}
+                <span>No image uploaded</span>
+            {% endif %}
+        </div>
+        
+        <!-- Buttons -->
+        <div class="buttons">
+            <!-- Upload Image Form -->
+            <form method="POST" enctype="multipart/form-data" class="button-form" id="upload-form">
+                <input type="file" name="file" id="file-input" accept="image/*" style="display: none;" required>
+                <button type="button" class="btn upload-btn" id="upload-button">Upload Image</button>
+            </form>
+            
+            <!-- Classify Image Form -->
+            <form method="POST" class="button-form">
+                {% if uploaded_image %}
+                    <input type="hidden" name="uploaded_image" value="{{ uploaded_image }}">
+                    <button type="submit" name="classify" class="btn classify-btn">Classify Image</button>
+                {% else %}
+                    <button type="submit" name="classify" class="btn classify-btn" disabled>Classify Image</button>
+                {% endif %}
+            </form>
+            
+            <!-- Reset Button Form -->
+            <form method="POST" class="button-form">
+                {% if uploaded_image %}
+                    <input type="hidden" name="uploaded_image" value="{{ uploaded_image }}">
+                    <button type="submit" name="reset" class="btn reset-btn">Reset</button>
+                {% else %}
+                    <button type="submit" name="reset" class="btn reset-btn" disabled>Reset</button>
+                {% endif %}
+            </form>
+        </div>
+        
+        <!-- Classification Results -->
+        <div class="results">
+            <div class="result-item">
+                <img src="{{ url_for('static', filename='images/th1.png') }}" alt="Crop Class Thumbnail" class="thumbnail">
+                <div class="result-text">
+                    <strong>Crop Class</strong>
+                    <p>{{ crop_class if crop_class else "" }}</p>
+                </div>
+            </div>
+            <div class="result-item">
+                <img src="{{ url_for('static', filename='images/th2.png') }}" alt="Disease Class Thumbnail" class="thumbnail">
+                <div class="result-text">
+                    <strong>Disease Class</strong>
+                    <p>{{ disease_class if disease_class else "" }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Similar Crops -->
+        {% if similar_crops %}
+            <div class="similar-section">
+                <h3>Similar Crops</h3>
+                <div class="similar-images">
+                    {% for img in similar_crops %}
+                        <img src="{{ img }}" alt="Similar Crop">
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+        <!-- Similar Diseases -->
+        {% if similar_diseases %}
+            <div class="similar-section">
+                <h3>Similar Diseases</h3>
+                <div class="similar-images">
+                    {% for img in similar_diseases %}
+                        <img src="{{ img }}" alt="Similar Disease">
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <p>Source code for this project can be found here:</p>
+        <a href="https://github.com/myndaaa/Out-Of-Distribution-Plant-Disease-Identification--COS300082/" target="_blank">
+            <img src="{{ url_for('static', filename='images/footer.png') }}" alt="Footer Logo" class="footer-logo">
+        </a>
+    </footer>
+    
+    <!-- JavaScript for Spinner and Upload Button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const classifyBtn = document.querySelector('.classify-btn');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const uploadButton = document.getElementById('upload-button');
+            const fileInput = document.getElementById('file-input');
+            const uploadForm = document.getElementById('upload-form');
+            
+            // Show spinner when classify button is clicked
+            if (classifyBtn) {
+                classifyBtn.addEventListener('click', function() {
+                    loadingSpinner.style.display = 'flex';
+                });
+            }
+            
+            // Handle Upload Image button click
+            uploadButton.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // Submit form when a file is selected
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                    uploadForm.submit();
+                }
+            });
+            
+            // Hide the spinner when the page has fully loaded
+            window.addEventListener('load', function() {
+                loadingSpinner.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

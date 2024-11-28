@@ -1,0 +1,271 @@
+<!-- templates/contributors.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contributors - Plant Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles specific to contributors.html */
+
+        /* Project Contributors Section */
+        .project-contributors {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 40px 0 20px 0;
+            color: #333;
+        }
+
+        /* Contributors Gallery */
+        .contributors-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contributor {
+            text-align: center;
+        }
+
+        .contributor img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contributor img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .contributor-name {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Contributions Section */
+        .contributions-section {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Contributions Table */
+        .contributions-table {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            border-collapse: collapse;
+            font-size: 1em;
+        }
+
+        .contributions-table th, .contributions-table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        .contributions-table th {
+            background-color: #7BA33A;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .contributions-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .contributions-table tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contributors-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contributors-table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+            <span class="site-name">Plant Classifier</span>
+        </div>
+        <div class="nav-center">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('archi') }}" class="nav-link">Architecture</a>
+            <a href="{{ url_for('contributors') }}" class="nav-link active">Contributors</a>
+            <a href="{{ url_for('about') }}" class="nav-link">About Data</a>
+        </div>
+    </nav>
+        
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Project Contributors Heading -->
+        <div class="project-contributors">Project Contributors</div>
+        
+        <!-- Contributors Gallery -->
+        <div class="contributors-gallery">
+            <!-- Contributor 1 -->
+            <div class="contributor">
+                <img src="{{ url_for('static', filename='images/mysha.png') }}" alt="Mysha Nahiyan Shemontee">
+                <div class="contributor-name">Mysha Nahiyan Shemontee</div>
+            </div>
+            
+            <!-- Contributor 2 -->
+            <div class="contributor">
+                <img src="{{ url_for('static', filename='images/voong.png') }}" alt="Voong Zhe Hong">
+                <div class="contributor-name">Voong Zhe Hong</div>
+            </div>
+            
+            <!-- Contributor 3 -->
+            <div class="contributor">
+                <img src="{{ url_for('static', filename='images/kelvin.png') }}" alt="Kelvin Chen Wei Lung">
+                <div class="contributor-name">Kelvin Chen Wei Lung</div>
+            </div>
+        </div>
+        
+        <!-- Contributions Heading -->
+        <div class="contributions-section">Contributions</div>
+        
+        <!-- Contributions Table -->
+        <table class="contributions-table">
+            <tr>
+                <th colspan="3">Who Did What</th>
+            </tr>
+            <tr>
+                <th>Contributor</th>
+                <th>Contribution</th>
+                <th>Percent Contribution</th>
+            </tr>
+            <tr>
+                <td rowspan="10">Mysha Nahiyan Shemontee</td>
+                <td>Exploratory models - ResNet50</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Baseline model (crop) - ResNet50v2</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Baseline model (disease) - ResNet50v2</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Baseline model (disease) - DenseNet102</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Baseline model (crop) - DenseNet102</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Proposed model</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Ensemble learning (crop baseline model)</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Ensemble learning (disease baseline model)</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Jetson Nano embedded system</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Web interface deployment</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Voong Zhe Hong</td>
+                <td>Baseline CNN (crop model)</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Baseline CNN model pipeline</td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td>Kelvin Chen Wei Lung</td>
+                <td>Baseline CNN (disease model)</td>
+                <td>100%</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <p>Source code for this project can be found here:</p>
+        <a href="https://github.com/myndaaa/Out-Of-Distribution-Plant-Disease-Identification--COS300082/" target="_blank">
+            <img src="{{ url_for('static', filename='images/footer.png') }}" alt="Footer Logo" class="footer-logo">
+        </a>
+    </footer>
+    
+    <!-- JavaScript for Spinner and Upload Button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const classifyBtn = document.querySelector('.classify-btn');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const uploadButton = document.getElementById('upload-button');
+            const fileInput = document.getElementById('file-input');
+            const uploadForm = document.getElementById('upload-form');
+            
+            // Show spinner when classify button is clicked
+            if (classifyBtn) {
+                classifyBtn.addEventListener('click', function() {
+                    loadingSpinner.style.display = 'flex';
+                });
+            }
+            
+            // Handle Upload Image button click
+            if (uploadButton) {
+                uploadButton.addEventListener('click', function() {
+                    fileInput.click();
+                });
+            }
+            
+            // Submit form when a file is selected
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files.length > 0) {
+                        uploadForm.submit();
+                    }
+                });
+            }
+            
+            // Hide the spinner when the page has fully loaded
+            window.addEventListener('load', function() {
+                loadingSpinner.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
